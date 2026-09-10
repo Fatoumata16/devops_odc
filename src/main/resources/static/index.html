@@ -1,0 +1,1611 @@
+<!--<!DOCTYPE html>-->
+
+<!--<html lang="fr">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+<!--    ```-->
+<!--    <title>Student Manager</title>-->
+
+<!--    <style>-->
+<!--        * {-->
+<!--            box-sizing: border-box;-->
+<!--            margin: 0;-->
+<!--            padding: 0;-->
+<!--        }-->
+
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background: #f4f6f8;-->
+<!--            color: #1f2937;-->
+<!--        }-->
+
+<!--        .header {-->
+<!--            background: #111827;-->
+<!--            color: white;-->
+<!--            padding: 22px 7%;-->
+<!--        }-->
+
+<!--        .header-content {-->
+<!--            max-width: 1200px;-->
+<!--            margin: auto;-->
+<!--            display: flex;-->
+<!--            justify-content: space-between;-->
+<!--            align-items: center;-->
+<!--            gap: 20px;-->
+<!--        }-->
+
+<!--        .logo {-->
+<!--            font-size: 24px;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+
+<!--        .logo span {-->
+<!--            color: #60a5fa;-->
+<!--        }-->
+
+<!--        .api-status {-->
+<!--            font-size: 13px;-->
+<!--            padding: 8px 14px;-->
+<!--            border-radius: 20px;-->
+<!--            background: #1f2937;-->
+<!--        }-->
+
+<!--        .container {-->
+<!--            max-width: 1200px;-->
+<!--            margin: 40px auto;-->
+<!--            padding: 0 20px;-->
+<!--        }-->
+
+<!--        .intro {-->
+<!--            margin-bottom: 25px;-->
+<!--        }-->
+
+<!--        .intro h1 {-->
+<!--            font-size: 30px;-->
+<!--            margin-bottom: 8px;-->
+<!--        }-->
+
+<!--        .intro p {-->
+<!--            color: #6b7280;-->
+<!--        }-->
+
+<!--        .layout {-->
+<!--            display: grid;-->
+<!--            grid-template-columns: 350px 1fr;-->
+<!--            gap: 25px;-->
+<!--        }-->
+
+<!--        .card {-->
+<!--            background: white;-->
+<!--            border-radius: 14px;-->
+<!--            padding: 25px;-->
+<!--            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);-->
+<!--        }-->
+
+<!--        .card h2 {-->
+<!--            margin-bottom: 20px;-->
+<!--            font-size: 20px;-->
+<!--        }-->
+
+<!--        .form-group {-->
+<!--            margin-bottom: 17px;-->
+<!--        }-->
+
+<!--        label {-->
+<!--            display: block;-->
+<!--            margin-bottom: 7px;-->
+<!--            font-size: 14px;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+
+<!--        input {-->
+<!--            width: 100%;-->
+<!--            padding: 12px;-->
+<!--            border: 1px solid #d1d5db;-->
+<!--            border-radius: 8px;-->
+<!--            outline: none;-->
+<!--            font-size: 14px;-->
+<!--        }-->
+
+<!--        input:focus {-->
+<!--            border-color: #2563eb;-->
+<!--            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);-->
+<!--        }-->
+
+<!--        .buttons {-->
+<!--            display: flex;-->
+<!--            gap: 10px;-->
+<!--            margin-top: 20px;-->
+<!--        }-->
+
+<!--        button {-->
+<!--            border: none;-->
+<!--            border-radius: 8px;-->
+<!--            padding: 11px 17px;-->
+<!--            cursor: pointer;-->
+<!--            font-weight: bold;-->
+<!--        }-->
+
+<!--        .btn-primary {-->
+<!--            background: #2563eb;-->
+<!--            color: white;-->
+<!--            flex: 1;-->
+<!--        }-->
+
+<!--        .btn-primary:hover {-->
+<!--            background: #1d4ed8;-->
+<!--        }-->
+
+<!--        .btn-secondary {-->
+<!--            background: #e5e7eb;-->
+<!--            color: #374151;-->
+<!--        }-->
+
+<!--        .search-area {-->
+<!--            display: flex;-->
+<!--            justify-content: space-between;-->
+<!--            align-items: center;-->
+<!--            gap: 15px;-->
+<!--            margin-bottom: 20px;-->
+<!--        }-->
+
+<!--        .search-area input {-->
+<!--            max-width: 300px;-->
+<!--        }-->
+
+<!--        .counter {-->
+<!--            font-size: 14px;-->
+<!--            color: #6b7280;-->
+<!--        }-->
+
+<!--        .student-list {-->
+<!--            display: flex;-->
+<!--            flex-direction: column;-->
+<!--            gap: 12px;-->
+<!--        }-->
+
+<!--        .student {-->
+<!--            border: 1px solid #e5e7eb;-->
+<!--            border-radius: 10px;-->
+<!--            padding: 17px;-->
+<!--            display: flex;-->
+<!--            justify-content: space-between;-->
+<!--            align-items: center;-->
+<!--            gap: 15px;-->
+<!--        }-->
+
+<!--        .student:hover {-->
+<!--            background: #f9fafb;-->
+<!--        }-->
+
+<!--        .student-info h3 {-->
+<!--            font-size: 16px;-->
+<!--            margin-bottom: 5px;-->
+<!--        }-->
+
+<!--        .student-info p {-->
+<!--            font-size: 13px;-->
+<!--            color: #6b7280;-->
+<!--            margin-top: 3px;-->
+<!--        }-->
+
+<!--        .student-id {-->
+<!--            display: inline-block;-->
+<!--            font-size: 11px;-->
+<!--            background: #eff6ff;-->
+<!--            color: #2563eb;-->
+<!--            padding: 3px 7px;-->
+<!--            border-radius: 10px;-->
+<!--            margin-bottom: 7px;-->
+<!--        }-->
+
+<!--        .actions {-->
+<!--            display: flex;-->
+<!--            gap: 8px;-->
+<!--        }-->
+
+<!--        .btn-edit {-->
+<!--            background: #fef3c7;-->
+<!--            color: #92400e;-->
+<!--        }-->
+
+<!--        .btn-delete {-->
+<!--            background: #fee2e2;-->
+<!--            color: #b91c1c;-->
+<!--        }-->
+
+<!--        .empty {-->
+<!--            text-align: center;-->
+<!--            padding: 50px 20px;-->
+<!--            color: #9ca3af;-->
+<!--        }-->
+
+<!--        .empty strong {-->
+<!--            display: block;-->
+<!--            color: #4b5563;-->
+<!--            font-size: 18px;-->
+<!--            margin-bottom: 7px;-->
+<!--        }-->
+
+<!--        .notification {-->
+<!--            position: fixed;-->
+<!--            right: 25px;-->
+<!--            bottom: 25px;-->
+<!--            background: #111827;-->
+<!--            color: white;-->
+<!--            padding: 14px 20px;-->
+<!--            border-radius: 8px;-->
+<!--            display: none;-->
+<!--            box-shadow: 0 5px 20px rgba(0,0,0,0.2);-->
+<!--        }-->
+
+<!--        .notification.show {-->
+<!--            display: block;-->
+<!--        }-->
+
+<!--        @media (max-width: 800px) {-->
+
+<!--            .layout {-->
+<!--                grid-template-columns: 1fr;-->
+<!--            }-->
+
+<!--            .header-content {-->
+<!--                flex-direction: column;-->
+<!--                align-items: flex-start;-->
+<!--            }-->
+
+<!--            .search-area {-->
+<!--                flex-direction: column;-->
+<!--                align-items: stretch;-->
+<!--            }-->
+
+<!--            .search-area input {-->
+<!--                max-width: none;-->
+<!--            }-->
+
+<!--            .student {-->
+<!--                flex-direction: column;-->
+<!--                align-items: flex-start;-->
+<!--            }-->
+<!--        }-->
+<!--    </style>-->
+<!--    ```-->
+
+<!--</head>-->
+
+<!--<body>-->
+
+<!--<header class="header">-->
+
+<!--    ```-->
+<!--    <div class="header-content">-->
+
+<!--        <div class="logo">-->
+<!--            Student<span>Manager</span>-->
+<!--        </div>-->
+
+<!--        <div class="api-status" id="apiStatus">-->
+<!--            API : vérification...-->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--    ```-->
+
+<!--</header>-->
+
+<!--<main class="container">-->
+
+<!--    ```-->
+<!--    <section class="intro">-->
+
+<!--        <h1>Gestion des étudiants</h1>-->
+
+<!--        <p>-->
+<!--            Application de test CRUD avec Spring Boot, JPA et H2.-->
+<!--        </p>-->
+
+<!--    </section>-->
+
+
+<!--    <div class="layout">-->
+
+<!--        &lt;!&ndash; FORMULAIRE &ndash;&gt;-->
+
+<!--        <section class="card">-->
+
+<!--            <h2 id="formTitle">-->
+<!--                Ajouter un étudiant-->
+<!--            </h2>-->
+
+<!--            <form id="studentForm">-->
+
+<!--                <div class="form-group">-->
+
+<!--                    <label for="nom">-->
+<!--                        Nom-->
+<!--                    </label>-->
+
+<!--                    <input-->
+<!--                            type="text"-->
+<!--                            id="nom"-->
+<!--                            placeholder="Ex : Traoré"-->
+<!--                            required-->
+<!--                    >-->
+
+<!--                </div>-->
+
+
+<!--                <div class="form-group">-->
+
+<!--                    <label for="prenom">-->
+<!--                        Prénom-->
+<!--                    </label>-->
+
+<!--                    <input-->
+<!--                            type="text"-->
+<!--                            id="prenom"-->
+<!--                            placeholder="Ex : Aïcha"-->
+<!--                            required-->
+<!--                    >-->
+
+<!--                </div>-->
+
+
+<!--                <div class="form-group">-->
+
+<!--                    <label for="email">-->
+<!--                        Email-->
+<!--                    </label>-->
+
+<!--                    <input-->
+<!--                            type="email"-->
+<!--                            id="email"-->
+<!--                            placeholder="Ex : aicha@gmail.com"-->
+<!--                    >-->
+
+<!--                </div>-->
+
+
+<!--                <div class="form-group">-->
+
+<!--                    <label for="telephone">-->
+<!--                        Téléphone-->
+<!--                    </label>-->
+
+<!--                    <input-->
+<!--                            type="text"-->
+<!--                            id="telephone"-->
+<!--                            placeholder="Ex : 76000000"-->
+<!--                    >-->
+
+<!--                </div>-->
+
+
+<!--                <div class="buttons">-->
+
+<!--                    <button-->
+<!--                            type="submit"-->
+<!--                            class="btn-primary"-->
+<!--                            id="submitButton"-->
+<!--                    >-->
+<!--                        Ajouter-->
+<!--                    </button>-->
+
+<!--                    <button-->
+<!--                            type="button"-->
+<!--                            class="btn-secondary"-->
+<!--                            id="cancelButton"-->
+<!--                            style="display:none;"-->
+<!--                    >-->
+<!--                        Annuler-->
+<!--                    </button>-->
+
+<!--                </div>-->
+
+<!--            </form>-->
+
+<!--        </section>-->
+
+
+<!--        &lt;!&ndash; LISTE &ndash;&gt;-->
+
+<!--        <section class="card">-->
+
+<!--            <div class="search-area">-->
+
+<!--                <div>-->
+
+<!--                    <h2>-->
+<!--                        Étudiants-->
+<!--                    </h2>-->
+
+<!--                    <span class="counter" id="counter">-->
+<!--                    0 étudiant-->
+<!--                </span>-->
+
+<!--                </div>-->
+
+<!--                <input-->
+<!--                        type="search"-->
+<!--                        id="search"-->
+<!--                        placeholder="Rechercher..."-->
+<!--                >-->
+
+<!--            </div>-->
+
+
+<!--            <div-->
+<!--                    class="student-list"-->
+<!--                    id="studentList"-->
+<!--            ></div>-->
+
+<!--        </section>-->
+
+<!--    </div>-->
+<!--    ```-->
+
+<!--</main>-->
+
+<!--<div-->
+<!--        class="notification"-->
+<!--        id="notification"-->
+<!--&gt;</div>-->
+
+<!--<script>-->
+
+<!--    const API_URL = "/api/students";-->
+
+<!--    const form = document.getElementById("studentForm");-->
+
+<!--    const nomInput = document.getElementById("nom");-->
+<!--    const prenomInput = document.getElementById("prenom");-->
+<!--    const emailInput = document.getElementById("email");-->
+<!--    const telephoneInput = document.getElementById("telephone");-->
+
+<!--    const studentList = document.getElementById("studentList");-->
+
+<!--    const counter = document.getElementById("counter");-->
+
+<!--    const searchInput = document.getElementById("search");-->
+
+<!--    const formTitle = document.getElementById("formTitle");-->
+
+<!--    const submitButton = document.getElementById("submitButton");-->
+
+<!--    const cancelButton = document.getElementById("cancelButton");-->
+
+<!--    const apiStatus = document.getElementById("apiStatus");-->
+
+<!--    const notification = document.getElementById("notification");-->
+
+
+<!--    let students = [];-->
+
+<!--    let editingId = null;-->
+
+
+<!--    // ===============================-->
+<!--    // NOTIFICATION-->
+<!--    // ===============================-->
+
+<!--    function showNotification(message) {-->
+
+<!--        notification.textContent = message;-->
+
+<!--        notification.classList.add("show");-->
+
+<!--        setTimeout(() => {-->
+<!--            notification.classList.remove("show");-->
+<!--        }, 2500);-->
+<!--    }-->
+
+
+<!--    // ===============================-->
+<!--    // CHARGER LES ETUDIANTS-->
+<!--    // ===============================-->
+
+<!--    async function loadStudents() {-->
+
+<!--        try {-->
+
+<!--            const response = await fetch(API_URL);-->
+
+<!--            if (!response.ok) {-->
+<!--                throw new Error("Erreur API");-->
+<!--            }-->
+
+<!--            students = await response.json();-->
+
+<!--            apiStatus.textContent = "API : connectée";-->
+
+<!--            renderStudents();-->
+
+<!--        } catch (error) {-->
+
+<!--            console.error(error);-->
+
+<!--            apiStatus.textContent = "API : hors ligne";-->
+
+<!--            studentList.innerHTML = `-->
+<!--                <div class="empty">-->
+<!--                    <strong>Impossible de contacter l'API</strong>-->
+<!--                    Vérifie que Spring Boot fonctionne sur le port 8085.-->
+<!--                </div>-->
+<!--            `;-->
+<!--        }-->
+<!--    }-->
+
+
+<!--    // ===============================-->
+<!--    // AFFICHER LES ETUDIANTS-->
+<!--    // ===============================-->
+
+<!--    function renderStudents() {-->
+
+<!--        const search = searchInput.value-->
+<!--            .toLowerCase()-->
+<!--            .trim();-->
+
+<!--        const filteredStudents = students.filter(student => {-->
+
+<!--            return (-->
+<!--                student.nom.toLowerCase().includes(search) ||-->
+<!--                student.prenom.toLowerCase().includes(search) ||-->
+<!--                (student.email || "").toLowerCase().includes(search)-->
+<!--            );-->
+
+<!--        });-->
+
+
+<!--        counter.textContent =-->
+<!--            `${filteredStudents.length} étudiant${filteredStudents.length > 1 ? "s" : ""}`;-->
+
+
+<!--        if (filteredStudents.length === 0) {-->
+
+<!--            studentList.innerHTML = `-->
+<!--                <div class="empty">-->
+<!--                    <strong>Aucun étudiant</strong>-->
+<!--                    Aucun résultat ne correspond à votre recherche.-->
+<!--                </div>-->
+<!--            `;-->
+
+<!--            return;-->
+<!--        }-->
+
+
+<!--        studentList.innerHTML = filteredStudents.map(student => `-->
+
+<!--            <article class="student">-->
+
+<!--                <div class="student-info">-->
+
+<!--                    <span class="student-id">-->
+<!--                        ID #${student.id}-->
+<!--                    </span>-->
+
+<!--                    <h3>-->
+<!--                        ${student.prenom} ${student.nom}-->
+<!--                    </h3>-->
+
+<!--                    <p>-->
+<!--                        ${student.email || "Aucun email"}-->
+<!--                    </p>-->
+
+<!--                    <p>-->
+<!--                        ${student.telephone || "Aucun téléphone"}-->
+<!--                    </p>-->
+
+<!--                </div>-->
+
+
+<!--                <div class="actions">-->
+
+<!--                    <button-->
+<!--                        class="btn-edit"-->
+<!--                        onclick="editStudent(${student.id})"-->
+<!--                    >-->
+<!--                        Modifier-->
+<!--                    </button>-->
+
+<!--                    <button-->
+<!--                        class="btn-delete"-->
+<!--                        onclick="deleteStudent(${student.id})"-->
+<!--                    >-->
+<!--                        Supprimer-->
+<!--                    </button>-->
+
+<!--                </div>-->
+
+<!--            </article>-->
+
+<!--        `).join("");-->
+<!--    }-->
+
+
+<!--    // ===============================-->
+<!--    // AJOUTER / MODIFIER-->
+<!--    // ===============================-->
+
+<!--    form.addEventListener("submit", async function(event) {-->
+
+<!--        event.preventDefault();-->
+
+
+<!--        const student = {-->
+
+<!--            nom: nomInput.value.trim(),-->
+
+<!--            prenom: prenomInput.value.trim(),-->
+
+<!--            email: emailInput.value.trim(),-->
+
+<!--            telephone: telephoneInput.value.trim()-->
+
+<!--        };-->
+
+
+<!--        try {-->
+
+<!--            let response;-->
+
+
+<!--            if (editingId === null) {-->
+
+<!--                // POST-->
+
+<!--                response = await fetch(API_URL, {-->
+
+<!--                    method: "POST",-->
+
+<!--                    headers: {-->
+<!--                        "Content-Type": "application/json"-->
+<!--                    },-->
+
+<!--                    body: JSON.stringify(student)-->
+
+<!--                });-->
+
+<!--            } else {-->
+
+<!--                // PUT-->
+
+<!--                response = await fetch(-->
+<!--                    `${API_URL}/${editingId}`,-->
+<!--                    {-->
+<!--                        method: "PUT",-->
+
+<!--                        headers: {-->
+<!--                            "Content-Type": "application/json"-->
+<!--                        },-->
+
+<!--                        body: JSON.stringify(student)-->
+<!--                    }-->
+<!--                );-->
+
+<!--            }-->
+
+
+<!--            if (!response.ok) {-->
+
+<!--                throw new Error(-->
+<!--                    "Impossible d'enregistrer l'étudiant"-->
+<!--                );-->
+
+<!--            }-->
+
+
+<!--            if (editingId === null) {-->
+
+<!--                showNotification(-->
+<!--                    "Étudiant ajouté avec succès."-->
+<!--                );-->
+
+<!--            } else {-->
+
+<!--                showNotification(-->
+<!--                    "Étudiant modifié avec succès."-->
+<!--                );-->
+
+<!--            }-->
+
+
+<!--            resetForm();-->
+
+<!--            await loadStudents();-->
+
+
+<!--        } catch (error) {-->
+
+<!--            console.error(error);-->
+
+<!--            showNotification(-->
+<!--                "Une erreur est survenue."-->
+<!--            );-->
+<!--        }-->
+
+<!--    });-->
+
+
+<!--    // ===============================-->
+<!--    // MODIFIER-->
+<!--    // ===============================-->
+
+<!--    function editStudent(id) {-->
+
+<!--        const student =-->
+<!--            students.find(student => student.id === id);-->
+
+
+<!--        if (!student) {-->
+<!--            return;-->
+<!--        }-->
+
+
+<!--        editingId = id;-->
+
+
+<!--        nomInput.value = student.nom;-->
+
+<!--        prenomInput.value = student.prenom;-->
+
+<!--        emailInput.value = student.email || "";-->
+
+<!--        telephoneInput.value = student.telephone || "";-->
+
+
+<!--        formTitle.textContent =-->
+<!--            "Modifier l'étudiant";-->
+
+
+<!--        submitButton.textContent =-->
+<!--            "Enregistrer";-->
+
+
+<!--        cancelButton.style.display =-->
+<!--            "block";-->
+
+
+<!--        window.scrollTo({-->
+<!--            top: 0,-->
+<!--            behavior: "smooth"-->
+<!--        });-->
+
+<!--    }-->
+
+
+<!--    // ===============================-->
+<!--    // SUPPRIMER-->
+<!--    // ===============================-->
+
+<!--    async function deleteStudent(id) {-->
+
+<!--        const student =-->
+<!--            students.find(student => student.id === id);-->
+
+
+<!--        if (!student) {-->
+<!--            return;-->
+<!--        }-->
+
+
+<!--        const confirmation = confirm(-->
+<!--            `Supprimer ${student.prenom} ${student.nom} ?`-->
+<!--        );-->
+
+
+<!--        if (!confirmation) {-->
+<!--            return;-->
+<!--        }-->
+
+
+<!--        try {-->
+
+<!--            const response = await fetch(-->
+<!--                `${API_URL}/${id}`,-->
+<!--                {-->
+<!--                    method: "DELETE"-->
+<!--                }-->
+<!--            );-->
+
+
+<!--            if (!response.ok) {-->
+
+<!--                throw new Error(-->
+<!--                    "Suppression impossible"-->
+<!--                );-->
+
+<!--            }-->
+
+
+<!--            showNotification(-->
+<!--                "Étudiant supprimé."-->
+<!--            );-->
+
+
+<!--            await loadStudents();-->
+
+
+<!--        } catch (error) {-->
+
+<!--            console.error(error);-->
+
+<!--            showNotification(-->
+<!--                "Erreur lors de la suppression."-->
+<!--            );-->
+<!--        }-->
+
+<!--    }-->
+
+
+<!--    // ===============================-->
+<!--    // ANNULER MODIFICATION-->
+<!--    // ===============================-->
+
+<!--    cancelButton.addEventListener(-->
+<!--        "click",-->
+<!--        resetForm-->
+<!--    );-->
+
+
+<!--    function resetForm() {-->
+
+<!--        editingId = null;-->
+
+<!--        form.reset();-->
+
+<!--        formTitle.textContent =-->
+<!--            "Ajouter un étudiant";-->
+
+<!--        submitButton.textContent =-->
+<!--            "Ajouter";-->
+
+<!--        cancelButton.style.display =-->
+<!--            "none";-->
+<!--    }-->
+
+
+<!--    // ===============================-->
+<!--    // RECHERCHE-->
+<!--    // ===============================-->
+
+<!--    searchInput.addEventListener(-->
+<!--        "input",-->
+<!--        renderStudents-->
+<!--    );-->
+
+
+<!--    // ===============================-->
+<!--    // INITIALISATION-->
+<!--    // ===============================-->
+
+<!--    loadStudents();-->
+
+<!--</script>-->
+
+<!--</body>-->
+<!--</html>-->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Manager</title>
+    <!-- Font Plus Jakarta Sans pour un style très propre/SaaS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --primary-light: #eef2ff;
+            --bg-body: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+            --shadow-hover: 0 12px 28px -4px rgba(15, 23, 42, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* Header moderne */
+        .header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(12px);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .logo span {
+            color: #818cf8;
+        }
+
+        /* Badge API animé */
+        .api-status {
+            font-size: 13px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 9999px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #94a3b8;
+            position: relative;
+        }
+
+        .api-status.online .status-dot {
+            background: #22c55e;
+            box-shadow: 0 0 10px #22c55e;
+        }
+
+        .api-status.offline .status-dot {
+            background: #ef4444;
+            box-shadow: 0 0 10px #ef4444;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 24px;
+        }
+
+        .intro {
+            margin-bottom: 32px;
+        }
+
+        .intro h1 {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            color: var(--text-main);
+        }
+
+        .intro p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-top: 4px;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        /* Cartes Style Dashboard */
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 28px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-card);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .card h2 {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        /* Formulaire */
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            outline: none;
+            font-family: inherit;
+            font-size: 14px;
+            color: var(--text-main);
+            background-color: #fff;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+        }
+
+        input::placeholder {
+            color: #94a3b8;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        button {
+            border: none;
+            border-radius: var(--radius-md);
+            padding: 12px 20px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            flex: 1;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        /* Liste & Recherche */
+        .search-area {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .search-area input {
+            max-width: 260px;
+            background-color: #f8fafc;
+        }
+
+        .counter {
+            font-size: 12px;
+            font-weight: 600;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 9999px;
+            margin-left: 8px;
+        }
+
+        .student-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        /* Item Étudiant */
+        .student {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .student:hover {
+            border-color: #cbd5e1;
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-2px);
+        }
+
+        .student-header-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        /* Avatar basé sur le nom */
+        .avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e0e7ff, #c7d2fe);
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .student-info h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.2;
+        }
+
+        .student-id {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        .student-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .badge-detail {
+            font-size: 12px;
+            color: var(--text-muted);
+            background: #f1f5f9;
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-action {
+            padding: 8px 12px;
+            font-size: 13px;
+            border-radius: 8px;
+        }
+
+        .btn-edit {
+            background: #fffbebf5;
+            color: #d97706;
+            border: 1px solid #fef3c7;
+        }
+
+        .btn-edit:hover {
+            background: #fef3c7;
+        }
+
+        .btn-delete {
+            background: #fef2f2;
+            color: #dc2626;
+            border: 1px solid #fee2e2;
+        }
+
+        .btn-delete:hover {
+            background: #fee2e2;
+        }
+
+        /* État vide */
+        .empty {
+            text-align: center;
+            padding: 48px 24px;
+            color: var(--text-muted);
+            background: #f8fafc;
+            border-radius: var(--radius-md);
+            border: 2px dashed var(--border-color);
+        }
+
+        .empty strong {
+            display: block;
+            color: var(--text-main);
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        /* Toast Notification */
+        .notification {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            background: #0f172a;
+            color: white;
+            padding: 14px 22px;
+            border-radius: var(--radius-md);
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            z-index: 100;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 850px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .search-area {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-area input {
+                max-width: none;
+            }
+
+            .student {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .actions {
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-content">
+        <div class="logo">
+            <span class="logo-icon"></span>
+            Student<span>Manager</span>
+        </div>
+        <div class="api-status" id="apiStatus">
+            <span class="status-dot"></span>
+            <span id="apiStatusText">API : vérification...</span>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <section class="intro">
+        <h1>Tableau de bord</h1>
+        <p>Gérez vos étudiants en temps réel via l'interface CRUD Spring Boot & H2.</p>
+    </section>
+
+    <div class="layout">
+
+        <!-- FORMULAIRE -->
+        <section class="card">
+            <div class="card-header">
+                <h2 id="formTitle">Ajouter un étudiant</h2>
+            </div>
+
+            <form id="studentForm">
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" placeholder="Ex : Traoré" required autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" placeholder="Ex : Aïcha" required autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adresse Email</label>
+                    <input type="email" id="email" placeholder="aicha.traore@example.com" autocomplete="off">
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone">Téléphone</label>
+                    <input type="tel" id="telephone" placeholder="+223 76 00 00 00" autocomplete="off">
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" class="btn-primary" id="submitButton">
+                        Enregistrer
+                    </button>
+                    <button type="button" class="btn-secondary" id="cancelButton" style="display:none;">
+                        Annuler
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- LISTE ÉTUDIANTS -->
+        <section class="card">
+            <div class="search-area">
+                <div>
+                    <h2>Liste des étudiants <span class="counter" id="counter">0</span></h2>
+                </div>
+                <input type="search" id="search" placeholder="🔍 Rechercher...">
+            </div>
+
+            <div class="student-list" id="studentList"></div>
+        </section>
+
+    </div>
+</main>
+
+<div class="notification" id="notification"></div>
+
+<script>
+    const API_URL = "/api/students";
+
+    const form = document.getElementById("studentForm");
+    const nomInput = document.getElementById("nom");
+    const prenomInput = document.getElementById("prenom");
+    const emailInput = document.getElementById("email");
+    const telephoneInput = document.getElementById("telephone");
+
+    const studentList = document.getElementById("studentList");
+    const counter = document.getElementById("counter");
+    const searchInput = document.getElementById("search");
+    const formTitle = document.getElementById("formTitle");
+    const submitButton = document.getElementById("submitButton");
+    const cancelButton = document.getElementById("cancelButton");
+    const apiStatus = document.getElementById("apiStatus");
+    const apiStatusText = document.getElementById("apiStatusText");
+    const notification = document.getElementById("notification");
+
+    let students = [];
+    let editingId = null;
+
+    function showNotification(message) {
+        notification.textContent = message;
+        notification.classList.add("show");
+        setTimeout(() => {
+            notification.classList.remove("show");
+        }, 3000);
+    }
+
+    async function loadStudents() {
+        try {
+            const response = await fetch(API_URL);
+
+            if (!response.ok) throw new Error("Erreur serveur");
+
+            students = await response.json();
+            apiStatusText.textContent = "API Connectée";
+            apiStatus.className = "api-status online";
+
+            renderStudents();
+        } catch (error) {
+            console.error(error);
+            apiStatusText.textContent = "API Hors-ligne";
+            apiStatus.className = "api-status offline";
+
+            studentList.innerHTML = `
+                <div class="empty">
+                    <strong>Impossible d'accéder au serveur</strong>
+                    Assurez-vous que votre application Spring Boot s'exécute correctement.
+                </div>
+            `;
+        }
+    }
+
+    function renderStudents() {
+        const search = searchInput.value.toLowerCase().trim();
+
+        const filteredStudents = students.filter(student => {
+            return (
+                student.nom.toLowerCase().includes(search) ||
+                student.prenom.toLowerCase().includes(search) ||
+                (student.email || "").toLowerCase().includes(search)
+            );
+        });
+
+        counter.textContent = filteredStudents.length;
+
+        if (filteredStudents.length === 0) {
+            studentList.innerHTML = `
+                <div class="empty">
+                    <strong>Aucun étudiant trouvé</strong>
+                    ${search ? 'Aucun résultat ne correspond à votre recherche.' : 'Commencez par ajouter un étudiant depuis le formulaire.'}
+                </div>
+            `;
+            return;
+        }
+
+        studentList.innerHTML = filteredStudents.map(student => {
+            // Création des initiales pour l'avatar
+            const initiales = `${student.prenom ? student.prenom[0] : ''}${student.nom ? student.nom[0] : ''}`.toUpperCase();
+
+            return `
+            <article class="student">
+                <div class="student-header-info">
+                    <div class="avatar">${initiales}</div>
+                    <div class="student-info">
+                        <span class="student-id">#${student.id}</span>
+                        <h3>${student.prenom} ${student.nom}</h3>
+                        <div class="student-details">
+                            ${student.email ? `<span class="badge-detail">✉ ${student.email}</span>` : ''}
+                            ${student.telephone ? `<span class="badge-detail">📞 ${student.telephone}</span>` : ''}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn-action btn-edit" onclick="editStudent(${student.id})">✏️ Modifier</button>
+                    <button class="btn-action btn-delete" onclick="deleteStudent(${student.id})">🗑️ Supprimer</button>
+                </div>
+            </article>
+        `}).join("");
+    }
+
+    form.addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const student = {
+            nom: nomInput.value.trim(),
+            prenom: prenomInput.value.trim(),
+            email: emailInput.value.trim(),
+            telephone: telephoneInput.value.trim()
+        };
+
+        try {
+            let response;
+
+            if (editingId === null) {
+                response = await fetch(API_URL, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(student)
+                });
+            } else {
+                response = await fetch(`${API_URL}/${editingId}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(student)
+                });
+            }
+
+            if (!response.ok) throw new Error("Erreur enregistrement");
+
+            showNotification(editingId === null ? "✨ Étudiant créé avec succès." : "✏️ Fiche étudiant mise à jour.");
+            resetForm();
+            await loadStudents();
+
+        } catch (error) {
+            console.error(error);
+            showNotification("⚠️ Une erreur est survenue.");
+        }
+    });
+
+    function editStudent(id) {
+        const student = students.find(s => s.id === id);
+        if (!student) return;
+
+        editingId = id;
+        nomInput.value = student.nom;
+        prenomInput.value = student.prenom;
+        emailInput.value = student.email || "";
+        telephoneInput.value = student.telephone || "";
+
+        formTitle.textContent = "Modifier l'étudiant";
+        submitButton.textContent = "Mettre à jour";
+        cancelButton.style.display = "inline-flex";
+
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    async function deleteStudent(id) {
+        const student = students.find(s => s.id === id);
+        if (!student) return;
+
+        if (!confirm(`Confirmer la suppression de ${student.prenom} ${student.nom} ?`)) return;
+
+        try {
+            const response = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+            if (!response.ok) throw new Error("Erreur suppression");
+
+            showNotification("🗑️ Étudiant supprimé.");
+            await loadStudents();
+        } catch (error) {
+            console.error(error);
+            showNotification("⚠️ Erreur lors de la suppression.");
+        }
+    }
+
+    cancelButton.addEventListener("click", resetForm);
+
+    function resetForm() {
+        editingId = null;
+        form.reset();
+        formTitle.textContent = "Ajouter un étudiant";
+        submitButton.textContent = "Enregistrer";
+        cancelButton.style.display = "none";
+    }
+
+    searchInput.addEventListener("input", renderStudents);
+
+    loadStudents();
+</script>
+
+</body>
+</html>
